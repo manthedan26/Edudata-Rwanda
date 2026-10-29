@@ -3,24 +3,24 @@ By Manthedan (INES-Ruhengeri) · Manzi Brian Bonheur and Igihozo Narada · Conta
 Entry for the NISR 2026 Big Data Hackathon.
 
 - **Live app:** https://manthedan26.github.io/Edudata-Rwanda/
-- **Demo video (max 3 minutes):** [`demo/demo.webm`](demo/demo.webm) (also shown at the bottom of the Home tab)
-- **Student cards (eligibility):** [`student_cards/student_cards.pdf`](student_cards/student_cards.pdf)
+- **Demo video (max 3 minutes):** [`demo.webm`](demo.webm) (also shown at the bottom of the Home tab)
+- **Student cards (eligibility):** [`student_cards.pdf`](student_cards.pdf)
 
 ## Repository structure
-| Path | What it is |
+| File | What it is |
 |---|---|
 | `README.md` | this documentation |
 | `index.html` | the whole website (HTML, CSS and JavaScript, the census results and the map in one file, so it runs on any machine and on GitHub Pages) |
 | `census_education.py`, `requirements.txt` | Python script that rebuilds the district results from the NISR census file |
-| `data/district_education.csv` | the data we use: Census 2022 district results (aggregated) |
-| `demo/demo.webm` | screen recording of the platform |
-| `student_cards/student_cards.pdf` | student cards of the two team members |
+| `district_education.csv` | the data we use: Census 2022 district results (aggregated) |
+| `demo.webm` | screen recording of the platform (also shown at the bottom of the Home tab) |
+| `student_cards.pdf` | student cards of the two team members |
 | `sw.js`, `ai-worker.js`, `LICENSE` | offline cache, optional online AI server code, licence note |
 
 ## What data it uses
 | Data | Source | Where |
 |---|---|---|
-| **Census 2022 education indicators** by district (attendance ages 6-17, adult secondary education, literacy) | NISR, Rwanda Population and Housing Census 2022, public-use microdata (study RWA-NISR-RPHC-2022-v0.1), weighted with `Pop_weight` | `data/district_education.csv`. The raw microdata is not published: download it from https://microdata.statistics.gov.rw/index.php/catalog/109 |
+| **Census 2022 education indicators** by district (attendance ages 6-17, adult secondary education, literacy) | NISR, Rwanda Population and Housing Census 2022, public-use microdata (study RWA-NISR-RPHC-2022-v0.1), weighted with `Pop_weight` | `district_education.csv`. The raw microdata is not published: download it from https://microdata.statistics.gov.rw/index.php/catalog/109 |
 | National school figures 2024/25 (schools, learners, owner, status, disability, internet, pupil/classroom) | MINEDUC Education Statistical Yearbook 2024/2025 | Overview and Insights tabs |
 | District map background | NISR, Administrative map of Rwanda (c) NISR 2017 | Census tab |
 | Textbooks and past papers (links only) | REB eLearning, NESA | Library tab |
@@ -40,7 +40,7 @@ Vision 2050 aims for upper-middle income by 2035 and high income by 2050. The se
 Sample: NISR's public-use file is a 10% equal-probability sample of private households (institutions excluded); it is self-weighting, so weighted and unweighted percentages are almost identical.
 Validation: our attendance for ages 6-11 (89.4%) and 12-17 (73.2%) and literacy 15+ (78.8%) match or nearly match NISR's published education thematic report (89.4%, 73.1%, 78.8%).
 Limits: small district differences may not be meaningful; results are not official NISR statistics.
-Reproduce: `python3 census_education.py PHC5_Public_microdata.dta` writes `data/district_education.csv`.
+Reproduce: `python3 census_education.py PHC5_Public_microdata.dta` writes `district_education.csv`.
 
 ## Declaration of authorship and use of AI
 This project is the work of Manzi Brian Bonheur and Igihozo Narada (team Manthedan, INES-Ruhengeri). We chose the topic and the goals, decided which features the platform needs, obtained the NISR Census 2022 data from the NISR microdata portal and the MINEDUC figures, reviewed and tested the platform on phones and computers, and set up the live website on GitHub Pages and the user feedback form.

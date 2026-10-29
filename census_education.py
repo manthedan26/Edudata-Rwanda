@@ -2,7 +2,7 @@
 """District education indicators from the NISR Rwanda Population and Housing Census 2022 public-use file.
 Source: NISR, microdata.statistics.gov.rw, study RWA-NISR-RPHC-2022-v0.1 (file PHC5_Public_microdata.dta).
 Usage: python3 census_education.py PHC5_Public_microdata.dta        (needs: pip install pandas)
-Output: data/district_education.csv  (aggregated only; raw microdata is NOT published)
+Output: district_education.csv  (aggregated only; raw microdata is NOT published)
 The file is NISR's 10% equal-probability sample of private households (institutions excluded). Percentages are weighted with Pop_weight; the sample is self-weighting, so unweighted percentages are almost identical.
 Age groups follow NISR's census education report (school age 6-17)."""
 import os, sys, pandas as pd
@@ -23,5 +23,5 @@ for name, g in d.groupby('dist'):
       'Attending_6_17_pct': pct(att, k), 'Girls_attending_pct': pct(att, k & f), 'Boys_attending_pct': pct(att, k & ~f),
       'Adults25plus_lower_secondary_or_higher_pct': pct(upper, adults & d.index.isin(i)),
       'Literate_15plus_pct': pct(literate, lit15 & d.index.isin(i))})
-out = pd.DataFrame(rows).sort_values('District'); os.makedirs('data', exist_ok=True); out.to_csv('data/district_education.csv', index=False)
+out = pd.DataFrame(rows).sort_values('District'); out.to_csv(sys.argv[2] if len(sys.argv) > 2 else 'district_education.csv', index=False)
 print(out.to_string(index=False)); print('National 6-17 attending %:', pct(att, kids))

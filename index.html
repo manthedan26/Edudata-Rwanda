@@ -441,8 +441,8 @@ a.btn{text-decoration:none}
       <article class="card tri"><span class="fi f2" data-icon="target"></span><h4>Understand</h4><p>Combines public data and AI so that education statistics become clear answers in your language.</p></article>
       <article class="card tri"><span class="fi f4" data-icon="users"></span><h4>Connect</h4><p>Helps planners, researchers, NGOs, journalists, parents and citizens use evidence to make better decisions.</p></article>
     </div>
-  <div class="card wide" id="demoSec" hidden><h3>Demo video</h3><p class="note">A short tour of Edudata-rwanda: Overview, Census, Insights, Library and the assistant.</p>
-      <video id="demoVid" controls preload="metadata" playsinline style="width:100%;border-radius:10px;background:#000"><source src="demo/demo.webm" type="video/webm"><source src="demo.webm" type="video/webm">Your browser cannot play this video.</video></div>
+  <div class="card wide" id="demoSec"><h3>Demo video</h3><p class="note">A short tour of Edudata-rwanda: Overview, Census, Insights, Library and the assistant.</p>
+      <video id="demoVid" controls preload="metadata" playsinline style="width:100%;border-radius:10px;background:#000"><source src="demo.webm" type="video/webm"><source src="demo/demo.webm" type="video/webm">Your browser cannot play this video. <a href="demo.webm">Open the demo video</a>.</video></div>
   </section>
 
   <!-- ===== OVERVIEW ===== -->
@@ -1212,8 +1212,6 @@ window.RM_LIBRARY = {
   fab.onclick = () => chatOpen(box.hidden); $('#chatClose').onclick = () => chatOpen(false);
   document.addEventListener('click', e => { if (e.target.closest('[data-open-chat]')) chatOpen(true); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) chatOpen(false); });
-  /* Demo video: shown at the bottom of Home only when demo/demo.webm (or demo.webm) exists */
-  (function () { const v = document.getElementById('demoVid'), s = document.getElementById('demoSec'); if (v && s) v.addEventListener('loadedmetadata', () => { s.hidden = false; }); })();
   if ('serviceWorker' in navigator && location.protocol !== 'https:') navigator.serviceWorker.getRegistrations().then(r => r.forEach(x => x.unregister())).catch(() => {});
   /* ---------------- Census 2022: education by district ---------------- */
   const CEN = window.RM_CENSUS, PCOL = { Kigali: '#7a3fe0', Northern: '#1565d8', Southern: '#2e9e4f', Eastern: '#c2650a', Western: '#00a1de' };
